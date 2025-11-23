@@ -111,7 +111,7 @@ export const IncomeGraph: React.FC<IncomeGraphProps> = React.memo(({ alpha }) =>
             <Line 
               type="monotone" 
               dataKey="conventional" 
-              stroke="#3b82f6" 
+              stroke="#0d9488" 
               name="従来制度" 
               strokeWidth={2}
               dot={false}

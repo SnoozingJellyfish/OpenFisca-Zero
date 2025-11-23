@@ -27,6 +27,12 @@ export interface Member {
   gender: string;
 }
 
+export interface Household {
+  id: number;
+  name: string;
+  members: Member[];
+}
+
 export interface OpenFiscaRequest {
   世帯一覧: {
     [key: string]: {
@@ -61,7 +67,9 @@ export interface OpenFiscaResponse {
 }
 
 export interface CalculationResult {
-  bi: number;
-  surplus: number;
-  total: number;
+  [householdId: number]: {
+    bi: number;
+    surplus: number;
+    total: number;
+  };
 }

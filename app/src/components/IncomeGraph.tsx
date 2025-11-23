@@ -41,8 +41,8 @@ const calculateAfterTaxIncome = (income: number): number => {
   return income;
 };
 
-export const IncomeGraph: React.FC<IncomeGraphProps> = ({ alpha }) => {
-  const [maxIncome, setMaxIncome] = useState<number>(10000000); // Default 10 million
+export const IncomeGraph: React.FC<IncomeGraphProps> = React.memo(({ alpha }) => {
+  const [maxIncome, setMaxIncome] = useState<number>(50000000); // Default 50 million
 
   const data = useMemo(() => {
     const points = 100;
@@ -79,7 +79,7 @@ export const IncomeGraph: React.FC<IncomeGraphProps> = ({ alpha }) => {
     <div className="p-5 bg-white rounded-lg shadow-sm sm:p-4 h-full flex flex-col">
       <h3 className="text-lg font-bold mb-4 text-gray-800">所得税引き後の金額</h3>
       
-      <div className="flex-1 min-h-[400px]">
+      <div className="flex-1 min-h-[400px] aspect-square mx-auto w-full max-w-[600px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
@@ -144,17 +144,17 @@ export const IncomeGraph: React.FC<IncomeGraphProps> = ({ alpha }) => {
         <input
           type="range"
           min="1000000" // 100万円
-          max="100000000" // 1億円
+          max="500000000" // 5億円
           step="1000000" // 100万円刻み
           value={maxIncome}
           onChange={(e) => setMaxIncome(Number(e.target.value))}
-          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-sky-600"
+          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
         />
         <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>100万円</span>
-          <span>1億円</span>
+          <span>5億円</span>
         </div>
       </div>
     </div>
   );
-};
+});

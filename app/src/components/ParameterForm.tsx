@@ -38,7 +38,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
             max="1" 
             value={alpha}
             onChange={(e) => setAlpha(parseFloat(e.target.value))}
-            className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-sky-400" 
+            className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400" 
             placeholder="0.85" 
           />
         </div>
@@ -66,7 +66,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   max="1" 
                   value={betaParams.child}
                   onChange={(e) => handleBetaChange('child', e.target.value)}
-                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-sky-400" 
+                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400" 
                   placeholder="0.5" 
                 />
               </div>
@@ -79,7 +79,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   max="1" 
                   value={betaParams.elder}
                   onChange={(e) => handleBetaChange('elder', e.target.value)}
-                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-sky-400" 
+                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400" 
                   placeholder="0.7" 
                 />
               </div>
@@ -104,7 +104,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   max="1" 
                   value={betaParams.couple}
                   onChange={(e) => handleBetaChange('couple', e.target.value)}
-                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-sky-400" 
+                  className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400" 
                   placeholder="0.9" 
                 />
               </div>
@@ -115,7 +115,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
         {/* Gamma */}
         <div className="flex items-center gap-2">
           <span className="font-medium text-gray-700">財政調整変数 γ =</span>
-          <span className="text-xl font-bold text-sky-600">
+          <span className="text-xl font-bold text-teal-600">
             {gamma !== null ? gamma.toFixed(4) : '計算中...'}
           </span>
         </div>

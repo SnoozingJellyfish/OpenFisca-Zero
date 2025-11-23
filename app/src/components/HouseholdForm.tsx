@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import type { Member } from '../types';
 
-interface Member {
-  id: number;
-  name: string;
-  age: string;
-  income: string;
-  gender: string;
+interface HouseholdFormProps {
+  members: Member[];
+  setMembers: (members: Member[]) => void;
 }
 
-export const HouseholdForm: React.FC = () => {
-  const [members, setMembers] = useState<Member[]>([
-    { id: 1, name: '世帯員1', age: '', income: '', gender: 'female' }
-  ]);
-
+export const HouseholdForm: React.FC<HouseholdFormProps> = ({ members, setMembers }) => {
   const addMember = () => {
-    const newId = members.length + 1;
+    const newId = members.length > 0 ? Math.max(...members.map(m => m.id)) + 1 : 1;
     setMembers([...members, { id: newId, name: `世帯員${newId}`, age: '', income: '', gender: 'female' }]);
   };
 
@@ -36,7 +30,7 @@ export const HouseholdForm: React.FC = () => {
               <select 
                 value={member.gender}
                 onChange={(e) => updateMember(member.id, 'gender', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-20 focus:outline-none focus:border-sky-400 flex-1 sm:flex-none sm:w-20 bg-white text-gray-700"
+                className="p-1.5 border border-gray-300 rounded w-20 focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-20 bg-white text-gray-700"
               >
                 <option value="female">女</option>
                 <option value="male">男</option>
@@ -49,7 +43,7 @@ export const HouseholdForm: React.FC = () => {
                 type="text" 
                 value={member.age}
                 onChange={(e) => updateMember(member.id, 'age', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-sky-400 flex-1 sm:flex-none sm:w-20" 
+                className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-20" 
                 placeholder="30" 
               />
             </div>
@@ -59,7 +53,7 @@ export const HouseholdForm: React.FC = () => {
                 type="text" 
                 value={member.income}
                 onChange={(e) => updateMember(member.id, 'income', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-24 text-right focus:outline-none focus:border-sky-400 flex-1 sm:flex-none sm:w-24" 
+                className="p-1.5 border border-gray-300 rounded w-24 text-right focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-24" 
                 placeholder="300" 
               />
             </div>
@@ -67,7 +61,7 @@ export const HouseholdForm: React.FC = () => {
         ))}
       </div>
       <button 
-        className="bg-green-500 text-white border-none py-2.5 px-5 rounded cursor-pointer text-base transition-colors hover:bg-green-600 w-full sm:w-auto" 
+        className="bg-teal-600 text-white border-none py-2.5 px-5 rounded cursor-pointer text-base transition-colors hover:bg-teal-700 w-full sm:w-auto" 
         onClick={addMember}
       >
         + 世帯員追加

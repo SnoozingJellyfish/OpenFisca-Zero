@@ -105,7 +105,7 @@ function App() {
 
           {/* Households and Results */}
           <div className="flex flex-col gap-5">
-            {households.map((household, householdIndex) => (
+            {households.map((household) => (
               <div key={household.id} className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
                 {/* Household Form */}
                 <div className="h-full">

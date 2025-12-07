@@ -32,7 +32,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
       <div className="flex flex-col gap-4">
         {/* Alpha */}
         <div className="flex items-center gap-2 flex-wrap">
-          <label className="font-medium text-gray-700">収入逓減率 <span className="text-red-500 font-bold">α</span> =</label>
+          <label className="font-medium text-gray-700">収入逓減指数 <span className="text-red-500 font-bold">α</span> =</label>
           <input 
             type="number" 
             step="0.01" 
@@ -59,7 +59,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
                 </svg>
               </button>
-              <div className="absolute z-50 w-80 p-4 top-full mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 left-0">
+              <div className="absolute z-50 w-64 sm:w-80 p-4 top-full mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 left-0">
                 <p className="mb-2">
                   最低生活保障にプラスされる金額に対し、世帯構成による支出の比率を設定します。
                 </p>
@@ -75,8 +75,9 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-y-2">
+              <span className="text-gray-600 text-lg mr-1">（</span>
+              <div className="flex items-center gap-2 mr-6">
                 <span className="text-gray-600">大人:</span>
                 <input 
                   type="text" 
@@ -85,7 +86,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   className="p-1.5 border border-gray-300 rounded w-20 text-right bg-gray-100 text-gray-500 cursor-not-allowed" 
                 />
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mr-6">
                 <label className="text-gray-600">児童:</label>
                 <input 
                   type="number" 
@@ -111,10 +112,16 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   placeholder="0.7" 
                 />
               </div>
+              <span className="text-gray-600 text-lg ml-1">）</span>
             </div>
             
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <div className="flex items-center gap-2">
+            <div className="flex justify-center w-full -my-2 relative z-10">
+              <span className="text-gray-400 font-bold text-lg">×</span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-y-2">
+              <span className="text-gray-600 text-lg mr-1">（</span>
+              <div className="flex items-center gap-2 mr-6">
                 <span className="text-gray-600">単身世帯:</span>
                 <input 
                   type="text" 
@@ -136,6 +143,7 @@ export const ParameterForm: React.FC<ParameterFormProps> = ({
                   placeholder="0.9" 
                 />
               </div>
+              <span className="text-gray-600 text-lg ml-1">）</span>
             </div>
           </div>
         </div>

@@ -55,49 +55,58 @@ export const HouseholdFormSingle: React.FC<HouseholdFormSingleProps> = ({ househ
       </div>
       <div className="pl-2 sm:pl-4 flex flex-col gap-0 mb-3">
         {household.members.map((member, index) => (
-          <div key={member.id} className="flex items-center gap-4 py-3 border-b border-gray-200 last:border-0 flex-col sm:flex-row sm:items-center sm:gap-4">
-            <span className="font-bold min-w-[80px] text-gray-700 mb-1 sm:mb-0">メンバー{index + 1}</span>
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
-              <label className="text-sm text-gray-600">性別</label>
-              <select 
-                value={member.gender}
-                onChange={(e) => updateMember(member.id, 'gender', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-20 focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-20 bg-white text-gray-700"
-              >
-                <option value="female">女</option>
-                <option value="male">男</option>
-                <option value="other">その他</option>
-              </select>
+          <div key={member.id} className="flex flex-wrap items-center gap-2 py-3 border-b border-gray-200 last:border-0">
+            <span className="font-bold w-full sm:w-auto min-w-[60px] text-gray-700 mb-1 sm:mb-0">メンバー{index + 1}</span>
+            
+            <div className="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap">
+              <div className="flex items-center gap-2 justify-between sm:justify-start">
+                <label className="text-xs text-gray-600 whitespace-nowrap w-8 sm:w-auto">性別</label>
+                <select 
+                  value={member.gender}
+                  onChange={(e) => updateMember(member.id, 'gender', e.target.value)}
+                  className="p-1.5 border border-gray-300 rounded w-full sm:w-16 text-sm focus:outline-none focus:border-teal-400 bg-white text-gray-700 flex-1 sm:flex-none"
+                >
+                  <option value="female">女</option>
+                  <option value="male">男</option>
+                  <option value="other">他</option>
+                </select>
+              </div>
+
+              <div className="flex items-center gap-2 justify-between sm:justify-start">
+                <label className="text-xs text-gray-600 whitespace-nowrap w-8 sm:w-auto">年齢</label>
+                <input 
+                  type="text" 
+                  value={member.age}
+                  onChange={(e) => updateMember(member.id, 'age', e.target.value)}
+                  className="p-1.5 border border-gray-300 rounded w-full sm:w-12 text-right text-sm focus:outline-none focus:border-teal-400 flex-1 sm:flex-none" 
+                  placeholder="30" 
+                />
+              </div>
+
+              <div className="flex items-center gap-2 justify-between sm:justify-start">
+                <label className="text-xs text-gray-600 whitespace-nowrap w-8 sm:w-auto">年収</label>
+                <div className="flex items-center gap-1 flex-1 sm:flex-none">
+                  <input 
+                    type="text" 
+                    value={member.income}
+                    onChange={(e) => updateMember(member.id, 'income', e.target.value)}
+                    className="p-1.5 border border-gray-300 rounded w-full sm:w-16 text-right text-sm focus:outline-none focus:border-teal-400 flex-1 sm:flex-none" 
+                    placeholder="300" 
+                  />
+                  <span className="text-xs text-gray-500 whitespace-nowrap">万</span>
+                </div>
+              </div>
+
+              {index > 0 && (
+                <button
+                  onClick={() => deleteMember(member.id)}
+                  className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-red-400 text-red-400 hover:bg-red-50 hover:border-red-600 transition-colors text-base font-bold ml-auto sm:ml-0 mt-1 sm:mt-0"
+                  title="メンバーを削除"
+                >
+                  ×
+                </button>
+              )}
             </div>
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
-              <label className="text-sm text-gray-600">年齢</label>
-              <input 
-                type="text" 
-                value={member.age}
-                onChange={(e) => updateMember(member.id, 'age', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-20 text-right focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-20" 
-                placeholder="30" 
-              />
-            </div>
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
-              <label className="text-sm text-gray-600">年収 (万円)</label>
-              <input 
-                type="text" 
-                value={member.income}
-                onChange={(e) => updateMember(member.id, 'income', e.target.value)}
-                className="p-1.5 border border-gray-300 rounded w-24 text-right focus:outline-none focus:border-teal-400 flex-1 sm:flex-none sm:w-24" 
-                placeholder="300" 
-              />
-            </div>
-            {index > 0 && (
-              <button
-                onClick={() => deleteMember(member.id)}
-                className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-red-400 text-red-400 hover:bg-red-50 hover:border-red-600 transition-colors text-base font-bold"
-                title="メンバーを削除"
-              >
-                ×
-              </button>
-            )}
           </div>
         ))}
       </div>

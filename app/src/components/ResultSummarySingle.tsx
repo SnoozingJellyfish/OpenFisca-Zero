@@ -35,20 +35,20 @@ export const ResultSummarySingle: React.FC<ResultSummarySingleProps> = ({ househ
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="flex flex-col sm:flex-row gap-2">
           {/* BI */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-            <div className="text-sm text-gray-600 mb-1">最低生活保障 (A)</div>
-            <div className="text-xl font-bold text-gray-800">
-              {result ? formatCurrency(result.bi) : '---'} <span className="text-sm font-normal text-gray-500">万円</span>
+          <div className="bg-gray-50 p-3 rounded-lg border border-gray-100 flex-1">
+            <div className="text-xs text-gray-600 mb-1">最低生活保障 (A)</div>
+            <div className="text-lg font-bold text-gray-800">
+              {result ? formatCurrency(result.bi) : '---'} <span className="text-xs font-normal text-gray-500">万円</span>
             </div>
           </div>
 
           {/* Surplus */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-            <div className="text-sm text-gray-600 mb-1">余剰額 (B)</div>
-            <div className="text-xl font-bold text-gray-800">
-              {result ? formatCurrency(result.surplus) : '---'} <span className="text-sm font-normal text-gray-500">万円</span>
+          <div className="bg-gray-50 p-3 rounded-lg border border-gray-100 flex-1">
+            <div className="text-xs text-gray-600 mb-1">余剰額 (B)</div>
+            <div className="text-lg font-bold text-gray-800">
+              {result ? formatCurrency(result.surplus) : '---'} <span className="text-xs font-normal text-gray-500">万円</span>
             </div>
           </div>
         </div>

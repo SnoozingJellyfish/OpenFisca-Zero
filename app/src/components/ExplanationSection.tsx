@@ -8,7 +8,7 @@ export const ExplanationSection: React.FC = () => {
         <h3 className="text-xl font-bold mb-2 text-gray-800">What is this?</h3>
         <div className="text-lg text-gray-700 leading-relaxed">
           <p className="mb-2">
-            最低生活保障(BI)、累進課税(収入逓減率<span className="text-red-500 font-bold">α</span>)、世帯構成によるコスト補正(<span className="text-blue-500 font-bold">β</span>)を組み合わせた制度シミュレーション
+            最低生活保障(BI)、累進課税(収入逓減指数<span className="text-red-500 font-bold">α</span>)、世帯構成によるコスト補正(<span className="text-blue-500 font-bold">β</span>)を組み合わせた制度シミュレーション
           </p>
           <div className="pl-2 border-l-2 border-teal-100 ml-1">
             <p className="mb-1">
@@ -38,7 +38,7 @@ export const ExplanationSection: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
               </svg>
             </button>
-            <div className="absolute z-50 w-80 p-4 top-full mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0">
+            <div className="absolute z-50 w-64 sm:w-80 p-4 top-full mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 left-0">
               <p className="mb-2">
                 「従来制度の手当+所得税引後の収入」は、代表的な手当である生活保護・児童手当・児童扶養手当と、収入から所得税(所得控除考慮)を引いた金額を合計したものです。
               </p>

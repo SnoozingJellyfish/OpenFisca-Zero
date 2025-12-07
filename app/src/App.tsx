@@ -98,7 +98,7 @@ function App() {
         <div className="col-span-1 md:col-span-2">
           <h2 className="text-2xl font-bold text-teal-600 mb-1">Step.2</h2>
           {/* Header Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div className="grid grid-cols-2 gap-2 md:gap-5 mb-5">
             <h3 className="text-lg font-bold text-gray-800">世帯情報</h3>
             <h3 className="text-lg font-bold text-gray-800">計算結果（年額）</h3>
           </div>
@@ -106,7 +106,7 @@ function App() {
           {/* Households and Results */}
           <div className="flex flex-col gap-5">
             {households.map((household) => (
-              <div key={household.id} className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+              <div key={household.id} className="grid grid-cols-2 gap-2 md:gap-5 items-start">
                 {/* Household Form */}
                 <div className="h-full">
                   <HouseholdFormSingle 

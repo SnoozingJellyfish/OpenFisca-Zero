@@ -6,9 +6,9 @@ export const Header: React.FC = () => {
       <div className="w-full max-w-[92rem] mx-auto flex justify-between items-center px-5">
         <div className="flex-1 flex justify-center">
           <img 
-            src="/images/title4.png" 
+            src="/images/title5.png" 
             alt="OpenFisca Zero" 
-            className="w-1/2 h-auto object-contain"
+            className="w-9/10 md:w-1/2 h-auto object-contain"
           />
         </div>
         
